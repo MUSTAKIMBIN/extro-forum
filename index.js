@@ -1,4 +1,4 @@
-const dataContainer = document.getElementById("data-container")
+
 const titleDataContainer = document.getElementById("title-data-container")
 const redingNum = document.getElementById("read-num")
 const postContainer = document.getElementById("post-container")
@@ -12,6 +12,8 @@ const loadAllApi = async()=>{
     displayAllApi(categorys)
 }
 const displayAllApi = (categorys)=>{
+    const dataContainer = document.getElementById("data-container")
+    dataContainer.innerHTML=''
     categorys.forEach(category => {
         let activeColor = "bg-green-600"
         if(category.isActive){
@@ -91,7 +93,7 @@ const displayLatestPost = (latestCategory)=>{
     latestCategory.forEach(element => {
         console.log(element)
         const latestDiv =document.createElement("div")
-        latestDiv.className=`border rounded-3xl border-gray-700 lg:w-1/3 p-3 shadow-lg`
+        latestDiv.className=`border rounded-3xl border-gray-300 lg:w-1/3 p-3 shadow-xl`
         latestDiv.innerHTML=`
                 <div>
                     <img src="${element.cover_image}" class="h-28 w-full rounded-xl" alt="">
@@ -116,6 +118,24 @@ const displayLatestPost = (latestCategory)=>{
 
     });
 }
+
+const loadQueryData = async(searchText)=>{
+    const url =  `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`
+    const res = await fetch(url)
+    const data = await res.json()
+    const categorys = data.posts
+    displayAllApi(categorys)
+}
+
+const getDataBySearch =()=>{
+    const inputFild = document.getElementById("search-input")
+    const inputFildText = inputFild.value
+    console.log(inputFildText)
+    loadQueryData(inputFildText)
+}
+
+
+
 loadPostApi()
 
 
