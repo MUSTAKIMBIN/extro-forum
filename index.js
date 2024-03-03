@@ -19,7 +19,7 @@ const displayAllApi = (categorys)=>{
         }else{
             activeColor = "bg-red-600"
         }
-        // console.log(category)
+        console.log(category)
         const categoryDiv = document.createElement("div")
         categoryDiv.innerHTML=`
         <div class="flex p-6 bg-[#F1F2FF] rounded-xl border-[#DEDFFE]">
@@ -42,7 +42,7 @@ const displayAllApi = (categorys)=>{
                                 <div class="flex gap-4">
                                     <div class="text-gray-600"><i class="fa-regular fa-message"></i> ${category.comment_count}</div>
                                     <div class="text-gray-600"><i class="fa-regular fa-eye"></i> ${category.view_count}</div>
-                                    <div class="text-gray-600"><i class="fa-regular fa-clock"></i> 5 min</div>
+                                    <div class="text-gray-600"><i class="fa-regular fa-clock"></i> ${category.posted_time}min</div>
                                     <div></div>
                                     <div></div>
                                 </div>
@@ -91,13 +91,13 @@ const displayLatestPost = (latestCategory)=>{
     latestCategory.forEach(element => {
         console.log(element)
         const latestDiv =document.createElement("div")
-        latestDiv.className=`border rounded-3xl border-gray-700 w-1/3 p-3 shadow-lg`
+        latestDiv.className=`border rounded-3xl border-gray-700 lg:w-1/3 p-3 shadow-lg`
         latestDiv.innerHTML=`
                 <div>
-                    <img src="${element.cover_image}" class="h-28" alt="">
+                    <img src="${element.cover_image}" class="h-28 w-full rounded-xl" alt="">
                 </div>
                 <div class="space-y-2">
-                    <p class="text-base text-gray-400"><i class="fa-regular fa-calendar"></i>   23 january</p>
+                    <p class="text-base text-gray-400"><i class="fa-regular fa-calendar"></i>  ${element.author?.posted_date || "No publish date"}</p>
                     <h4 class="text-sm font-bold">${element.title}</h4>
                     <p class="text-gray-400 text-sm">${element.description} </p>
                     
