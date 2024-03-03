@@ -1,6 +1,7 @@
 const dataContainer = document.getElementById("data-container")
 const titleDataContainer = document.getElementById("title-data-container")
 const redingNum = document.getElementById("read-num")
+const postContainer = document.getElementById("post-container")
 
 
 const loadAllApi = async()=>{
@@ -78,8 +79,44 @@ const printSubtitle = async(categoryId)=>{
 }
 
 
+const loadPostApi = async()=>{
+    const url = "https://openapi.programming-hero.com/api/retro-forum/latest-posts"
+    const res = await fetch(url)
+    const data = await res.json()
+    const categorys = data
+    console.log(categorys)
+    displayLatestPost(categorys)
+}
+const displayLatestPost = (latestCategory)=>{
+    latestCategory.forEach(element => {
+        console.log(element)
+        const latestDiv =document.createElement("div")
+        latestDiv.className=`border rounded-3xl border-gray-700 w-1/3 p-3 shadow-lg`
+        latestDiv.innerHTML=`
+                <div>
+                    <img src="${element.cover_image}" class="h-28" alt="">
+                </div>
+                <div class="space-y-2">
+                    <p class="text-base text-gray-400"><i class="fa-regular fa-calendar"></i>   23 january</p>
+                    <h4 class="text-sm font-bold">${element.title}</h4>
+                    <p class="text-gray-400 text-sm">${element.description} </p>
+                    
+                </div>
+                <div class="flex gap-5">
+                    <div>
+                        <img src="${element.profile_image}" class="h-12 w-12 rounded-full" alt="">
+                    </div>
+                    <div>
+                        <h5 class="text-base font-bold">${element.author.name}</h5>
+                        <p class="text-xs text-gray-300">${element.author?.designation || "unknown"}</p>
+                    </div>
+                </div>
+        `
+        postContainer.appendChild(latestDiv)
 
-
+    });
+}
+loadPostApi()
 
 
 
