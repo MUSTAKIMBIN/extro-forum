@@ -90,19 +90,52 @@
                 <h2 class="text-3xl font-bold text-[#12132D]">Let's Discuss</h2>
                 <p class="text-gray-400 mt-4">Yes, you can run unit tests and view the results directly within the app. The <br> integrated testing features allow for a streamlined .</p>
             </div>
-            <div>
-                <div id="data-container">
-                     <div>
-                        <div>
-                            <img src="images/joinforum.png" alt="">
+            <div class="flex flex-col lg:flex-row gap-5">
+                <div id="data-container w-3/4">
+                     <div class="flex p-6 bg-[#F1F2FF] rounded-xl border-[#DEDFFE]">
+                        <div id="" class="rounded-xl w-14 relative" >
+                            <img src="images/joinforum.png" class="w-14 h-14" alt="">
+                            <div class="absolute h-3 w-3 rounded-full bg-red-600 top-1 right-1">
+
+                            </div>
                          </div>
-                         <div>
+                         <div id="">
+                            <div id="category-container" class="flex gap-7 text-sm font-semibold">
+                                <p>#Music</p>
+                                <p>Author : Maicle</p>
+                            </div>
+                            <div class="mb-2 border-b-2 border-dashed border-gray-200">
+                                <h3 class="text-xl font-bold mt-2">10 Kids Unaware of Their Halloween Costume</h3>
+                                <p class="text-sm text-gray-400 my-5">It’s one thing to subject yourself to ha Halloween costume mishap because,<br>
+                                    hey that’s your prerogative</p>
+                            </div>
+                            <div id="icon-container" class="flex justify-between mt-3">
+                                <div class="flex gap-4">
+                                    <div class="text-gray-600"><i class="fa-regular fa-message"></i> 500</div>
+                                    <div class="text-gray-600"><i class="fa-regular fa-eye"></i> 500</div>
+                                    <div class="text-gray-600"><i class="fa-regular fa-clock"></i> 5 min</div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div class="w-7 h-7 rounded-full bg-[#10B981] flex justify-center items-center">
+                                    <i class="fa-solid fa-envelope-open text-white "></i>
+                                </div>
+                            </div>
 
                          </div>
                      </div>
                 </div>
-                <div>
-
+                <div class="p-5 w-2/6">
+                    <div class="flex justify-between items-center">
+                        <p class="text-lg font-bold">Title</p>
+                        <p class="text-sm font-bold">Mark as read (<span id="read-num">0</span>)</p>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-center bg-white p-2 rounded-lg shadow-xl">
+                            <h3 class="text-sm font-bold mt-2">10 Kids Unaware of <br> Their Halloween Costume</h3>
+                            <div class="text-gray-600"><i class="fa-regular fa-message"></i> 500</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -111,14 +144,14 @@
     </main>
 
         <footer class="footer footer-center p-10 bg-gray-100 text-[#12132D]-content">
-            <div class="space-y-5">
+            <div>
                 <aside>
     
                     <p class="font-bold text-3xl">ExTro </p> 
                     <p class="text-gray-600 font-semibold">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots <br> in a piece of classical Latin literature from 45 BC</p>
                   </aside> 
                   <nav>
-                    <div class="space-x-5 text-2xl">
+                    <div class="space-x-5 text-2xl mt-4">
                       <i class="fa-brands fa-twitter"></i>
                       <i class="fa-brands fa-facebook"></i>
                       <i class="fa-brands fa-instagram"></i>
