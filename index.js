@@ -73,7 +73,7 @@ const printSubtitle = async(categoryId)=>{
     subtitleDiv.className =`flex mb-3 items-center justify-center bg-white p-2 rounded-lg shadow-xl`
     subtitleDiv.innerHTML=`
     <h3 class="text-sm font-bold mt-2">10 Kids Unaware of <br> Their Halloween Costume</h3>
-    <div class="text-gray-600"><i class="fa-regular fa-message"></i> 500</div>
+    <div class="text-gray-600"><i class="fa-regular fa-eye"></i> 500</div>
     `
     titleDataContainer.appendChild(subtitleDiv)
 }
