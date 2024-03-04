@@ -21,7 +21,7 @@ const displayAllApi = (categorys)=>{
         }else{
             activeColor = "bg-red-600"
         }
-        console.log(category)
+        // console.log(category)
         const categoryDiv = document.createElement("div")
         categoryDiv.innerHTML=`
         <div class="flex p-6 bg-[#F1F2FF] rounded-xl border-[#DEDFFE]">
@@ -62,20 +62,21 @@ const displayAllApi = (categorys)=>{
 let countNum = 0;
 const printSubtitle = async(categoryId)=>{
     
-    // const url = `https://openapi.programming-hero.com/api/retro-forum/posts`
-    // const res = await fetch(url)
-    // const data = await res.json()
-    // const categorys = data.find(categoryId)
+    const url = ` https://openapi.programming-hero.com/api/retro-forum/post/${categoryId}`
+    const res = await fetch(url)
+    const data = await res.json()
+    const categorys = data
    
-    // console.log(categorys)
+    console.log(categorys)
     
     countNum++;
     redingNum.innerText=countNum
     const subtitleDiv = document.createElement("div")
     subtitleDiv.className =`flex mb-3 items-center justify-center bg-white p-2 rounded-lg shadow-xl`
     subtitleDiv.innerHTML=`
-    <h3 class="text-sm font-bold mt-2">10 Kids Unaware of <br> Their Halloween Costume</h3>
-    <div class="text-gray-600"><i class="fa-regular fa-eye"></i> 500</div>
+    <h3 class="text-sm font-bold mt-2">${categorys.title}</h3>
+    <div class="text-gray-600"><i class="fa-regular fa-eye"></i> ${categorys.view_count
+    }</div>
     `
     titleDataContainer.appendChild(subtitleDiv)
 }
@@ -86,12 +87,10 @@ const loadPostApi = async()=>{
     const res = await fetch(url)
     const data = await res.json()
     const categorys = data
-    console.log(categorys)
     displayLatestPost(categorys)
 }
 const displayLatestPost = (latestCategory)=>{
     latestCategory.forEach(element => {
-        console.log(element)
         const latestDiv =document.createElement("div")
         latestDiv.className=`border rounded-3xl border-gray-300 lg:w-1/3 p-3 shadow-xl`
         latestDiv.innerHTML=`
@@ -130,7 +129,6 @@ const loadQueryData = async(searchText)=>{
 const getDataBySearch =()=>{
     const inputFild = document.getElementById("search-input")
     const inputFildText = inputFild.value
-    // console.log(inputFildText)
     loadQueryData(inputFildText)
     const loadingSpinner = document.getElementById("loading-spinner")
     loadingSpinner.classList.remove("hidden")
