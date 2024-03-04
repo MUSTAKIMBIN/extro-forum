@@ -130,8 +130,13 @@ const loadQueryData = async(searchText)=>{
 const getDataBySearch =()=>{
     const inputFild = document.getElementById("search-input")
     const inputFildText = inputFild.value
-    console.log(inputFildText)
+    // console.log(inputFildText)
     loadQueryData(inputFildText)
+    const loadingSpinner = document.getElementById("loading-spinner")
+    loadingSpinner.classList.remove("hidden")
+    setTimeout(()=>{
+        loadingSpinner.classList.add("hidden")
+    },2000)
 }
 
 
